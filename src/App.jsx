@@ -82,7 +82,7 @@ function App() {
   return (
     <>
 
-      {loading ? (
+      {/* {loading ? (
         <div className="flex w-full h-[100vh] justify-center items-center bg-black text-white font-mono text-4xl">
           <p>Loading...</p>
 
@@ -93,12 +93,12 @@ function App() {
           
         </div>
       ) : (
-        <>
-        <WaterTank distance={parseInt(distance.distance)} alert={Alert} />
+        <> */}
+        {/* <WaterTank distance={parseInt(distance.distance)} alert={Alert} /> */}
        <Send/>
         </>
-      )}
-    </>
+      // )}
+    // </>
   );
 }
 
