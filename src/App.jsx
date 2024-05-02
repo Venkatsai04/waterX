@@ -21,10 +21,8 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         setDistance(data);
-        setAlert(data.alert)
-
         console.log(data);
-
+        setAlert(data.alert)
         setError(null); // Clear any previous errors
       } else {
         throw new Error(`HTTP error: ${response.status} - ${response.statusText}`);
@@ -42,47 +40,12 @@ function App() {
   }, []);
 
  
-  // useEffect(() => {
-  //   reqPerm(); // Fetch the distance on component mount
-  //   onMessage(messaging, (payload)=>{
-  //     console.log(payload);
-  //   })
-
-  // }, []);
-
-  // const sendNotification = async () => {
-  //   const token = await getToken(getMessaging());
-  //   const notificationTitle = 'Alert';
-  //   const notificationBody = 'Water tank is full ';
-
-  //   try {
-  //     const response = await axios.post('http://localhost:3000/send-notification', {
-  //       token,
-  //       title: notificationTitle,
-  //       body: notificationBody,
-  //     });
-
-  //     console.log('Notification sent:', response.data);
-  //   } catch (error) {
-  //     console.error('Error sending notification:', error);
-  //   }
-  // };
-
-
-  // useEffect(() => {
-  //   if(Alert==false){
-  //     console.log("sending");
-  //     sendNotification()
-
-  //   }
-  // }, [])
   
-
 
   return (
     <>
 
-      {/* {loading ? (
+      {loading ? (
         <div className="flex w-full h-[100vh] justify-center items-center bg-black text-white font-mono text-4xl">
           <p>Loading...</p>
 
@@ -93,12 +56,11 @@ function App() {
           
         </div>
       ) : (
-        <> */}
-        {/* <WaterTank distance={parseInt(distance.distance)} alert={Alert} /> */}
-       <Send/>
+        <>
+        <WaterTank distance={parseInt(distance.distance)} alert={Alert} />
         </>
-      // )}
-    // </>
+      )}
+    </>
   );
 }
 
