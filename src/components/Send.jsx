@@ -9,7 +9,7 @@ const Send = ({ sensorData, alert }) => {
 
   const fetchDistance = async () => {
     try {
-      const response = await fetch('http://192.168.29.94/distance', {
+      const response = await fetch('https://server-waterx.onrender.com/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
