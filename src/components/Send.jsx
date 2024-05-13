@@ -47,7 +47,7 @@ const Send = ({ sensorData, alert }) => {
       console.log('Subscribed:', JSON.stringify(subscription));
 
       // Send subscription to server
-      await fetch('http://localhost:3001/subscribe', {
+      await fetch(`${serverUrl}/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
