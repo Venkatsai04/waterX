@@ -6,7 +6,9 @@ const Send = ({ sensorData, alert }) => {
   const [Data, setData] = useState()
   const [Alert, setAlert] = useState(false)
   const [loading, setLoading] = useState(true); // New loading state
+  const serverUrl = 'https://push-server-silk.vercel.app/'
 
+  
   const fetchDistance = async () => {
     try {
       const response = await fetch('https://server-waterx.onrender.com/', {
@@ -69,7 +71,7 @@ const Send = ({ sensorData, alert }) => {
     }
 
     try {
-      await fetch('http://localhost:3001/sendNotification', {
+      await fetch(`${serverUrl}/sendNotification`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
