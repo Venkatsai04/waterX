@@ -76,7 +76,7 @@ const WaterTank = ({ distance, alert }) => {
           {Alert === false
             ? sensorData <= 3
               ? 'sensor error'
-              : `${percentage.toFixed(0)}%`
+              : `${100 - (percentage.toFixed(0))}%`
             : <p className='text-red-400'>{` Tank Full ${100 - (percentage.toFixed(0))}%`}</p>}
         </div>
       </div>
