@@ -8,11 +8,15 @@ function App() {
   const [loading, setLoading] = useState(true); // New loading state
   const [error, setError] = useState(null); // New error state
   const [Alert, setAlert] = useState(false)
+  // const url = 'https://server-waterx.onrender.com/'
+  const url = "https://server-sooty-beta.vercel.app/"
+
 
   const fetchDistance = async () => {
     try {
-      const response = await fetch('http://192.168.29.94/distance', {
+      const response = await fetch(url, {
         method: 'GET',
+        // mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
