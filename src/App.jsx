@@ -14,7 +14,11 @@ function App() {
 
   const fetchDistance = async () => {
     try {
+<<<<<<< HEAD
       const response = await fetch(url, {
+=======
+      const response = await fetch('https://server-waterx.onrender.com/', {
+>>>>>>> d4a10ad3b4c5e44c526424d8d9fcb1ec53b13c33
         method: 'GET',
         // mode: 'no-cors',
         headers: {

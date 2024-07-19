@@ -5,15 +5,24 @@ const Send = ({ sensorData, alert }) => {
   const [Alert, setAlert] = useState(false);
   const [Filling, setFilling] = useState(false);
   const [loading, setLoading] = useState(true); // New loading state
+<<<<<<< HEAD
   const [error, setError] = useState(null);
   const alertAudioRef = useRef(new Audio('/tone2.wav'));
   const intervalIdRef = useRef(null);
 
   const url = "https://server-sooty-beta.vercel.app/";
+=======
+  const serverUrl = 'https://push-server-silk.vercel.app/'
+>>>>>>> d4a10ad3b4c5e44c526424d8d9fcb1ec53b13c33
 
+  
   const fetchDistance = async () => {
     try {
+<<<<<<< HEAD
       const response = await fetch(url, {
+=======
+      const response = await fetch('https://server-waterx.onrender.com/', {
+>>>>>>> d4a10ad3b4c5e44c526424d8d9fcb1ec53b13c33
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -36,6 +45,7 @@ const Send = ({ sensorData, alert }) => {
     }
   };
 
+<<<<<<< HEAD
   const notifyUser = () => {
     if (Data >= 3 && Data <= 25 && Alert && Filling) {
       if (!intervalIdRef.current) {
@@ -46,6 +56,30 @@ const Send = ({ sensorData, alert }) => {
     } else {
       clearInterval(intervalIdRef.current);
       intervalIdRef.current = null;
+=======
+  const subscribe = async () => {
+
+    try {
+      const registration = await navigator.serviceWorker.register('/service-worker.js');
+      const subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: 'BEAxVPVb72JDTuOy-jS7Qv9CIpkC-wilsr8gEd3-YMPnYWImyTMRP3iRNq5o3fhq4HDAnzI2FrRQH1hSdGjntPs',
+      });
+      setSubscription(subscription);
+      console.log('Subscribed:', JSON.stringify(subscription));
+
+      // Send subscription to server
+      await fetch(`${serverUrl}/subscribe`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ subscription }),
+      });
+    } catch (error) {
+      console.error('Error subscribing:', error);
+      setError(error.message);
+>>>>>>> d4a10ad3b4c5e44c526424d8d9fcb1ec53b13c33
     }
   };
 
@@ -53,11 +87,37 @@ const Send = ({ sensorData, alert }) => {
     window.location.reload();
   };
 
+<<<<<<< HEAD
   const setTankState = () => {
     setFilling((prevFilling) => !prevFilling);
     if (Filling) {
       clearInterval(intervalIdRef.current);
       intervalIdRef.current = null;
+=======
+  const sendNotification = async () => {
+    if (!subscription) {
+      setError('Please subscribe to notifications first.');
+      return;
+    }
+
+    try {
+      await fetch(`${serverUrl}/sendNotification`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          notification: {
+            title: 'New Notification',
+            body: 'This is a push notification!',
+          },
+        }),
+      });
+      console.log('Notification sent!');
+    } catch (error) {
+      console.error('Error sending notification:', error);
+      setError(error.message);
+>>>>>>> d4a10ad3b4c5e44c526424d8d9fcb1ec53b13c33
     }
   };
 
