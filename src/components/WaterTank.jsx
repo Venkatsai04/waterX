@@ -21,7 +21,6 @@ const WaterTank = ({ distance, alert }) => {
     const interval = setInterval(() => {
       fetchDistance();
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
