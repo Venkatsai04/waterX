@@ -1,0 +1,16 @@
+.water {
+    transform: translateX(-100px);
+    animation: move 2s ease-in-out infinite;
+}
+
+@keyframes move {
+    from {
+
+        transform: translateX(-300px);
+    }
+
+    to {
+        transform: translateX(300px);
+
+    }
+}

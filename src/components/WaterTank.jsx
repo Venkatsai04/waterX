@@ -62,7 +62,7 @@ const WaterTank = ({ distance, alert }) => {
     <div className="m-auto flex flex-col items-center justify-center min-h-[100vh] gap-10 bg-black">
       <div className="w-full text-center">
         <h1 className="mb-4 scale-110 text-3xl font-semibold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Water Tank Level</span> 
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-sky-400">Water Tank Level</span> 
         </h1>
       </div>
       <div className="flex items-center justify-center w-[78%] h-[500px] bg-white rounded-lg overflow-hidden border-[10px] border-white">
